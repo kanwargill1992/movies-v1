@@ -5,20 +5,20 @@ import './Trailer.css';
 import React from 'react';
 
 const Trailer = () => {
-  let params = useParams();
-  let key = params.ytTrailerId;
-
+  let { ytTrailerId } = useParams();
   return (
     <div className='react-player-container'>
-      {key != null ? (
+      {ytTrailerId != null ? (
         <ReactPlayer
           controls='true'
           playing={true}
-          url={`https://www.youtube.com/watch?v=${key}`}
+          url={`https://www.youtube.com/watch?v=${ytTrailerId}`}
           width='100%'
           height='100%'
         />
-      ) : null}
+      ) : (
+        <h3>Loading.....</h3>
+      )}
     </div>
   );
 };
